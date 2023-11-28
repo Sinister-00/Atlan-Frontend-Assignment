@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import CustomEditor from "../components/customEditor";
 import Head from "next/head";
 
 const Index = () => {
   const [currentQuery, setCurrentQuery] = useState(1);
-  const [userQno, setUserQno] = useState("");
+  const [userQueryNumber, setUserQueryNumber] = useState("");
   const [receivedData, setReceivedData] = useState("");
-  const [displayEmployees, setDisplayEmployees] = useState(false);
+  const [isDisplayingTeachers, setIsDisplayingTeachers] = useState(false);
 
   const toggleDisplay = (data) => {
-    setDisplayEmployees(data);
+    setIsDisplayingTeachers(data);
     setCurrentQuery(1);
   };
 
@@ -17,9 +18,10 @@ const Index = () => {
     setReceivedData(childData.label);
   };
 
-  const setUserQnoState = (qno) => {
-    setUserQno(qno);
+  const setUserQueryNumberState = (qno) => {
+    setUserQueryNumber(qno);
   };
+
   return (
     <>
       <Head>
@@ -45,7 +47,16 @@ const Index = () => {
           content="https://atlan-frontend-assignment.vercel.app/"
         />
       </Head>
-      <div></div>
+      <CustomEditor
+        setUserQueryNumberState={setUserQueryNumberState}
+        isDisplayingTeachers={isDisplayingTeachers}
+        onDataReceived={onDataReceived}
+        showText={receivedData}
+        parentData={onDataReceived}
+        toggleDisplay={toggleDisplay}
+      />
+
+      {/* <div></div> */}
     </>
   );
 };
