@@ -3,69 +3,67 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 const CustomEditor = (props) => {
-  const [isDisplayingTeachers, setIsDisplayingTeachers] = useState(false);
+  const [showEmployees, setShowEmployees] = useState(false);
   const [submitQuery, setSubmitQuery] = useState(0);
-  const [currentQuery, setCurrentQuery] = useState("");
-  const [sqlQuery, setSqlQuery] = useState("");
-  const [queryNumber, setQueryNumber] = useState(0);
+  const [query, setQuery] = useState("");
+  const [code, setCode] = useState("");
+  const [qno, setQno] = useState(0);
 
   const toggle = () => {
-    setIsDisplayingTeachers(true);
-    props.toggleDisplay(true);
+    setShowEmployees(true);
+    props.show(true);
   };
-
+  ``;
   const toggle2 = () => {
-    setIsDisplayingTeachers(false);
-    props.toggleDisplay(false);
+    setShowEmployees(false);
+    props.show(false);
   };
 
   const displayQuery = () => {
-    if (sqlQuery === "select * from students") {
-      setQueryNumber(1);
-      props.setUserQueryNumberState(1);
-    } else if (sqlQuery === "select * from students where grade= 'A'") {
-      setQueryNumber(2);
-      props.setUserQueryNumberState(2);
-    } else if (sqlQuery === "select * from students where country= 'India'") {
-      setQueryNumber(3);
-      props.setUserQueryNumberState(3);
+    if (code === "select * from students") {
+      setQno(1);
+      props.qno(1);
+    } else if (code === "select * from students where year='Final'") {
+      setQno(2);
+      props.qno(2);
+    } else if (code === "select * from students where country= 'India'") {
+      setQno(3);
+      props.qno(3);
     } else if (
-      sqlQuery === "select * from students where grade= 'A' and city='New York'"
+      code === "select * from students where year='Final and city='Delhi'"
     ) {
-      setQueryNumber(4);
-      props.setUserQueryNumberState(4);
-    } else if (sqlQuery === "select * from students where city='London'") {
-      setQueryNumber(5);
-      props.setUserQueryNumberState(5);
+      setQno(4);
+      props.qno(4);
+    } else if (code === "select * from students where city='Delhi'") {
+      setQno(5);
+      props.qno(5);
     } else if (
-      sqlQuery === "select * from students where grade= 'A' or city='London'"
+      code === "select * from students where year='Final or city='London'"
     ) {
-      setQueryNumber(6);
-      props.setUserQueryNumberState(6);
+      setQno(6);
+      props.qno(6);
     } else {
-      setQueryNumber(7);
-      props.setUserQueryNumberState(7);
+      setQno(7);
+      props.qno(7);
     }
   };
-
   const handleChange = (e) => {
-    setSqlQuery(e.target.value);
+    setCode(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitQuery(currentQuery);
+    setSubmitQuery(query);
   };
-
   let queries;
-  if (!isDisplayingTeachers) {
+  if (!props.showEmployees) {
     queries = [
       {
         label: "select * from students",
         value: 1,
       },
       {
-        label: "select * from students where grade= 'A'",
+        label: "select * from students where year= 'Final' ",
         value: 2,
       },
       {
@@ -80,11 +78,11 @@ const CustomEditor = (props) => {
         value: 1,
       },
       {
-        label: "select * from teachers where subject= 'Math'",
+        label: "select * from teachers where subject = 'chemistry'",
         value: 2,
       },
       {
-        label: "select * from teachers where experienceYears= 5",
+        label: "select * from teachers where yearId = 87",
         value: 3,
       },
     ];
@@ -130,9 +128,9 @@ const CustomEditor = (props) => {
               className="w-full border flex items-center hover:bg-slate-300 bg-white border-slate-300 text-left py-2 px-5 my-1 font-medium rounded-full text-base truncate"
               key={query.value}
               onClick={() => {
-                setCurrentQuery(query.label);
+                setQuery(query.label);
                 setSubmitQuery(query.value);
-                props.onDataReceived(query);
+                props.parentData(query);
               }}
             >
               <Image src="Images/play.svg" alt="play" width={12} height={12} />
