@@ -1,40 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Atlan Frontend Assesment
 
-## Getting Started
+This Project is for atlan for evaluating front-end application given in their assignment i.e. built SQL editor specifically to fulfill the task given by Atlan.
 
-First, run the development server:
+## Technologies used
+
+> 1.  NextJs
+> 2.  Tailwind CSS
+
+## Working
+
+1. The top-left section consists of options to toggle between different Tables.
+
+2. The next section contains options that directly put result of the given queries below in table format output.
+
+3. Then on the right most section there is editor in which we can put coustom queries. The result of coustom queries are display at the bottom.
+   <br/>List of all queries that can run in editor are:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+    a. select * from customers
+    b. select * from students where year = 'Final'
+    c. select * from students where country = 'India'
+    d. select * from students where year = 'Final' and city = 'Delhi'
+    e. select * from students where city = 'Delhi'
+    f. select * from students where year = 'Final' or city = 'London'
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Performance
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+![Performace](./performance.jpg)
+![Performace_LightHouse](./Performance_LightHouse.png)
+<br>
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Optimization
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+> I Use only the core features of NextJs & Tailwind CSS.<br>
+> I do not use any Third party Libraries which slow down page loading time as well as performance.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Preview
 
-## Learn More
+![PreviewOne](./Preview_00.png)
+<br>
+<hr>
+<br>
 
-To learn more about Next.js, take a look at the following resources:
+![PreviewTwo](./Preview_01.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<br>
+<hr>
+<br>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![PreviewThree](./Preview_02.png)
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
