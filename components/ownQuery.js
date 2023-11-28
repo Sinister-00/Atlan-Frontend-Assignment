@@ -47,7 +47,8 @@ const OwnQuery = ({ queryNo, students }) => {
       rows = [];
   }
 
-  if (queryNo) return <Fragment />;
+  console.log(queryNo);
+  if (!queryNo) return <Fragment />;
 
   return (
     <div className="flex w-full flex-col">
@@ -85,7 +86,7 @@ const OwnQuery = ({ queryNo, students }) => {
         )}
         {!rows.length && (
           <div className="text-center">
-            <div className="flex w-full justify-center items-center h-40 min-h-full">
+            <div className="flex w-full justify-center items-center h-25 min-h-full">
               <h1 className="text-2xl font-bold">
                 No Results Found for the given query
               </h1>

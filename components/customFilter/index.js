@@ -11,7 +11,7 @@ const CustomFilter = (props) => {
       <div className="text-xl py-1 font-medium text-center bg-gray-600 text-white">
         Below Result is from Query that you select from given options
       </div>
-      <div className="flex justify-center items-center mt-10">
+      <div className="flex justify-center items-center my-10">
         {!props.showEmployees ? (
           <table className="md:table-fixed border-collapse text-xs">
             <thead>
