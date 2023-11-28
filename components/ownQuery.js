@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment } from "react";
 
 const OwnQuery = ({ queryNo, students }) => {
   let rows = [];
@@ -10,35 +10,35 @@ const OwnQuery = ({ queryNo, students }) => {
       break;
     case 2:
       for (let i = 0; i < data.length; i++) {
-        if (data[i].year === 'Final') {
+        if (data[i].year === "Final") {
           rows.push(data[i]);
         }
       }
       break;
     case 3:
       for (let i = 0; i < data.length; i++) {
-        if (data[i].country === 'India') {
+        if (data[i].country === "India") {
           rows.push(data[i]);
         }
       }
       break;
     case 4:
       for (let i = 0; i < data.length; i++) {
-        if (data[i].year === 'Final' && data[i].city === 'Delhi') {
+        if (data[i].year === "Final" && data[i].city === "Delhi") {
           rows.push(data[i]);
         }
       }
       break;
     case 5:
       for (let i = 0; i < data.length; i++) {
-        if (data[i].city === 'London') {
+        if (data[i].city === "Delhi") {
           rows.push(data[i]);
         }
       }
       break;
     case 6:
       for (let i = 0; i < data.length; i++) {
-        if (data[i].year === 'Final' || data[i].city === 'London') {
+        if (data[i].year === "Final" || data[i].city === "London") {
           rows.push(data[i]);
         }
       }
@@ -93,25 +93,25 @@ const OwnQuery = ({ queryNo, students }) => {
             </div>
             <div className="text-left">
               <div className="font-semibold text-xl">
-                List of available queries are:{' '}
+                List of available queries are:{" "}
               </div>
-              <div className="text-lg">{'>'} select * from students</div>
+              <div className="text-lg">{">"} select * from students</div>
               <div className="text-lg">
-                {'>'} select * from students where year= &apos;Final&apos;
-              </div>
-              <div className="text-lg">
-                {'>'} select * from students where country= &apos;India&apos;
+                {">"} select * from students where year = &apos;Final&apos;
               </div>
               <div className="text-lg">
-                {'>'} select * from students where year= &apos;Final&apos; and
-                city=&apos;Delhi&apos;
+                {">"} select * from students where country = &apos;India&apos;
               </div>
               <div className="text-lg">
-                {'>'} select * from students where city=&apos;Delhi&apos;
+                {">"} select * from students where year = &apos;Final&apos; and
+                city = &apos;Delhi&apos;
               </div>
               <div className="text-lg">
-                {'>'} select * from students where year= &apos;Final&apos; or
-                city=&apos;London&apos;
+                {">"} select * from students where city = &apos;Delhi&apos;
+              </div>
+              <div className="text-lg">
+                {">"} select * from students where year = &apos;Final&apos; or
+                city = &apos;London&apos;
               </div>
             </div>
           </div>

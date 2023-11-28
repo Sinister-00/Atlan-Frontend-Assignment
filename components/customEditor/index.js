@@ -1,26 +1,26 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { useState } from 'react';
-import { getQueries } from './helper';
+import Image from "next/image";
+import Link from "next/link";
+import React, { useState } from "react";
+import { getQueries } from "./helper";
 
 const CustomEditor = ({ showEmployees, show, setOwnQno, parentData }) => {
-  const [code, setCode] = useState('');
+  const [code, setCode] = useState("");
 
   const displayQuery = () => {
-    if (code === 'select * from students') {
+    if (code === "select * from students") {
       setOwnQno(1);
-    } else if (code === "select * from students where year='Final'") {
+    } else if (code === "select * from students where year = 'Final'") {
       setOwnQno(2);
-    } else if (code === "select * from students where country= 'India'") {
+    } else if (code === "select * from students where country = 'India'") {
       setOwnQno(3);
     } else if (
-      code === "select * from students where year='Final and city='Delhi'"
+      code === "select * from students where year = 'Final' and city = 'Delhi'"
     ) {
       setOwnQno(4);
-    } else if (code === "select * from students where city='Delhi'") {
+    } else if (code === "select * from students where city = 'Delhi'") {
       setOwnQno(5);
     } else if (
-      code === "select * from students where year='Final or city='London'"
+      code === "select * from students where year = 'Final' or city = 'London'"
     ) {
       setOwnQno(6);
     } else {
@@ -44,7 +44,7 @@ const CustomEditor = ({ showEmployees, show, setOwnQno, parentData }) => {
             height={50}
             width={150}
           />
-          <span style={{ color: '#2026d2' }}>SQL Editor</span>
+          <span style={{ color: "#2026d2" }}>SQL Editor</span>
         </Link>
         <div className="mt-5 mb-2 font-bold uppercase tracking-widest text-center">
           Select Table
