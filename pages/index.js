@@ -1,25 +1,26 @@
 import React, { useState } from "react";
 import CustomEditor from "../components/customEditor";
+import CustomFilter from "../components/customFilter";
 import Head from "next/head";
 
 const Index = () => {
-  const [currentQuery, setCurrentQuery] = useState(1);
-  const [userQueryNumber, setUserQueryNumber] = useState("");
-  const [receivedData, setReceivedData] = useState("");
-  const [isDisplayingTeachers, setIsDisplayingTeachers] = useState(false);
+  const [query, setQuery] = useState(1);
+  const [ownQno, setOwnQno] = useState("");
+  const [data, setData] = useState("");
+  const [showEmployees, setShowEmployees] = useState(false);
 
-  const toggleDisplay = (data) => {
-    setIsDisplayingTeachers(data);
-    setCurrentQuery(1);
+  const toggle = (data) => {
+    setShowEmployees(data);
+    setQuery(1);
   };
 
-  const onDataReceived = (childData) => {
-    setCurrentQuery(childData.value);
-    setReceivedData(childData.label);
+  const dataPass = (childData) => {
+    setQuery(childData.value);
+    setData(childData.label);
   };
 
-  const setUserQueryNumberState = (qno) => {
-    setUserQueryNumber(qno);
+  const qno = (qno) => {
+    setOwnQno(qno);
   };
 
   return (
@@ -47,15 +48,22 @@ const Index = () => {
           content="https://atlan-frontend-assignment.vercel.app/"
         />
       </Head>
-      <CustomEditor
-        setUserQueryNumberState={setUserQueryNumberState}
-        isDisplayingTeachers={isDisplayingTeachers}
-        onDataReceived={onDataReceived}
-        showText={receivedData}
-        parentData={onDataReceived}
-        toggleDisplay={toggleDisplay}
-      />
-
+      <div>
+        <CustomEditor
+          qno={qno}
+          showEmployees={showEmployees}
+          parentData={dataPass}
+          show={toggle}
+        />
+      </div>
+      <div>
+        <CustomFilter
+          qno={ownQno}
+          showEmployees={showEmployees}
+          showText={data}
+          query={query}
+        />
+      </div>
       {/* <div></div> */}
     </>
   );
