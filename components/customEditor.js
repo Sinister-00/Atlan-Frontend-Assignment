@@ -1,12 +1,12 @@
-import Image from "next/image";
-import Link from "next/link";
-import React, { useState } from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import React, { useState } from 'react';
 
 const CustomEditor = (props) => {
   const [showEmployees, setShowEmployees] = useState(false);
   const [submitQuery, setSubmitQuery] = useState(0);
-  const [query, setQuery] = useState("");
-  const [code, setCode] = useState("");
+  const [query, setQuery] = useState('');
+  const [code, setCode] = useState('');
   const [qno, setQno] = useState(0);
 
   const toggle = () => {
@@ -20,7 +20,7 @@ const CustomEditor = (props) => {
   };
 
   const displayQuery = () => {
-    if (code === "select * from students") {
+    if (code === 'select * from students') {
       setQno(1);
       props.qno(1);
     } else if (code === "select * from students where year='Final'") {
@@ -59,7 +59,7 @@ const CustomEditor = (props) => {
   if (!props.showEmployees) {
     queries = [
       {
-        label: "select * from students",
+        label: 'select * from students',
         value: 1,
       },
       {
@@ -74,7 +74,7 @@ const CustomEditor = (props) => {
   } else {
     queries = [
       {
-        label: "select * from teachers",
+        label: 'select * from teachers',
         value: 1,
       },
       {
@@ -82,20 +82,20 @@ const CustomEditor = (props) => {
         value: 2,
       },
       {
-        label: "select * from teachers where yearId = 87",
+        label: 'select * from teachers where yearId = 87',
         value: 3,
       },
     ];
   }
 
   return (
-    <div className="flex justify-between  border-b-4 border-gray-600">
+    <div className="flex justify-between border-b-4 border-gray-600">
       <div className="px-5 mt-2">
         <Link
           href="/"
           className="w-full font-bold flex items-center justify-center border-2 py-1 px-3 border-sky-400"
         >
-          <span style={{ color: "#2026d2" }}>SQL Editor</span>
+          <span style={{ color: '#2026d2' }}>SQL Editor</span>
         </Link>
         <div className="mt-5 mb-2 font-bold uppercase tracking-widest">
           Select Table

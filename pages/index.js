@@ -1,12 +1,14 @@
-import React, { useState } from "react";
-import CustomEditor from "../components/customEditor";
-import CustomFilter from "../components/customFilter";
-import Head from "next/head";
+import React, { useState } from 'react';
+import Head from 'next/head';
+import OwnQuery from '@/components/ownQuery';
+import students from '@/store/mockStudents';
+import CustomEditor from '@/components/customEditor';
+import CustomFilter from '@/components/customFilter';
 
 const Index = () => {
   const [query, setQuery] = useState(1);
-  const [ownQno, setOwnQno] = useState("");
-  const [data, setData] = useState("");
+  const [ownQno, setOwnQno] = useState('');
+  const [data, setData] = useState('');
   const [showEmployees, setShowEmployees] = useState(false);
 
   const toggle = (data) => {
@@ -28,15 +30,11 @@ const Index = () => {
       <Head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#4CAF50" />{" "}
+        <meta name="theme-color" content="#4CAF50" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
-          rel="stylesheet"
-        />
-        <title>AtlanSQL Explorer</title>
-        <meta name="title" content="AtlanSQL Explorer"></meta>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <title>Atlan Assessment</title>
+        <meta name="title" content="Atlan Assessment"></meta>
         <meta
           name="description"
           content="Navigate your data landscape effortlessly with AtlanSQL Explorer, your go-to tool for seamless SQL querying and exploration."
@@ -48,23 +46,21 @@ const Index = () => {
           content="https://atlan-frontend-assignment.vercel.app/"
         />
       </Head>
-      <div>
-        <CustomEditor
-          qno={qno}
-          showEmployees={showEmployees}
-          parentData={dataPass}
-          show={toggle}
-        />
-      </div>
-      <div>
+      <CustomEditor
+        qno={qno}
+        showEmployees={showEmployees}
+        parentData={dataPass}
+        show={toggle}
+      />
+      <div className="flex w-full">
         <CustomFilter
           qno={ownQno}
           showEmployees={showEmployees}
           showText={data}
           query={query}
         />
+        <OwnQuery queryNo={ownQno} students={students} />
       </div>
-      {/* <div></div> */}
     </>
   );
 };
