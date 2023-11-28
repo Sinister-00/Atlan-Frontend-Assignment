@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import Head from 'next/head';
+import React, { useState } from 'react';
 import OwnQuery from '@/components/ownQuery';
 import students from '@/store/mockStudents';
 import CustomEditor from '@/components/customEditor';
@@ -21,18 +21,18 @@ const Index = () => {
     setData(childData.label);
   };
 
-  const qno = (qno) => {
-    setOwnQno(qno);
-  };
-
   return (
     <>
       <Head>
-        <meta charset="utf-8" />
+        <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#4CAF50" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
         <title>Atlan Assessment</title>
         <meta name="title" content="Atlan Assessment"></meta>
         <meta
@@ -47,7 +47,7 @@ const Index = () => {
         />
       </Head>
       <CustomEditor
-        qno={qno}
+        setOwnQno={setOwnQno}
         showEmployees={showEmployees}
         parentData={dataPass}
         show={toggle}
